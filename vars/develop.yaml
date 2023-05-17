@@ -1,0 +1,33 @@
+project: 'android-pipeline'
+services:
+  gke:
+    # Requeridas:
+    #cluster: 'android-pipeline' # Nombre del cluster donde mandaremos el deployment
+    appName: 'android-pipeline' # Nombre de la aplicacion
+    # No obligatorio
+    buildImage: true # Automaticamente lanza el job de crear la imagen
+    substitutions:
+      #- var: FLAVOR
+      #  value: qa
+      #  files:
+      #    - Dockerfile
+      - var: BUILD_TYPE
+        value: debug
+        files:
+          - Dockerfile
+      - var: APP_CENTER_OWNER_NAME
+        value: rcano-compartamos.com
+        files:
+          - Dockerfile
+      - var: APP_NAME
+        value: Compartamos-en-tus-manos-Promotor
+        files:
+          - Dockerfile
+      - var: APP_CENTER_API_TOKEN
+        value: b761547e2da0681cdb092e952e15141abf9b0850
+        files:
+          - Dockerfile
+      - var: APP_CENTER_DISTRIBUTION_GROUP
+        value: Test
+        files:
+          - Dockerfile

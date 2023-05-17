@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  app:
+    container_name: android-pipeline
+    image: android-pipeline
+    build: .
+    volumes:
+      - data:/usr/lib/android-sdk
+      - data2:/opt/gradle/gradle-7.4
+      - data3:/usr/lib/jvm/java-11-openjdk-amd64
+
+volumes:
+  data:
+    driver: "local"
+  data2:
+    driver: "local"
+  data3:
+    driver: "local"
